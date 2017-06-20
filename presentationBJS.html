@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Présentation BABYLONJS</title>
+    <meta charset="utf-8">
+    <script src="babylon.max.js"></script>
+
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="head.min.js"></script>
+    <link rel="stylesheet" href="reveal/css/reveal.css">
+    <link rel="stylesheet" href="reveal/css/theme/beige.css">
+    <link rel="stylesheet" href="zenburn.css">
+    <style>
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section id="Intro" data-transition="convex">
+                <h2>Dev In Rodez</h2>
+                <h1>BabylonJS</h1>
+                <br/>
+                <br/>
+                <p style="font-size: 70%;">date ici</p>
+            </section>
+        
+            <section  data-transition="convex">          
+                <section id="Demo1">
+                    <h3>teaser ...</h3>
+                </section>
+            </section>
+
+            <section data-transition="convex">
+                <section id="Canvas">
+                    <h3>HMTL5</h3>
+                    <pre><code class="html">
+                        &lt;canvas&gt;&lt;/canvas&gt;
+                    </code></pre>
+                </section>
+            </section>
+
+            <section data-transition="convex">
+                <section id="Systeme">
+                    <h2>Système</h2>
+                </section>
+                <section id="Serveurs">
+                    <h3>Serveurs</h3>
+                    <ul style="list-style-type: none;">
+                    <li class="fragment">30 serveurs physiques rackés</li>
+                    <li class="fragment">Virtualisation OpenVZ (LXC), KVM et Hyper-V</li>
+                    <li class="fragment">6 serveurs dédiés NDV</li>
+                    <li class="fragment">3 tours restantes... dont portail Wifi</li>
+                    <li class="fragment">6 NAS locaux + 1 à UT1</li>
+                    </ul>                
+                </section>
+
+                <section id="DMZ">
+                    <h3>La DMZ</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Reverse Proxy web</li>
+                    <li>Serveur de noms DNS zone "iut-rodez.fr" + reverse</li>
+                    <li>Proxy Cache Web : squid + squidguard</li>
+                    <li>Bastion SSH</li>
+                    <li>Relai SMTP technique</li>
+                    </ul>
+                </section>
+
+                <section id="ServeursTransversaux">
+                    <h3>Les serveurs transversaux</h3>
+                    <ul style="list-style-type: none;">
+                    <li>DHCP, DNS (résolveur et noms), NTP, TFTP</li>
+                    <li>Serveurs web proxifiés : CAS, WWW, Redmine (tickets), GPU, Svn, etc</li>
+                    <li>Outils de monitoring : Syslog, Nagios, Cacti, SmokePing, Winlog</li>
+                    <li>Gestion d'inventaire et déploiement : OCS Inventory</li>
+                    <li>Gestion des comptes : Refid</li>
+                    <li>Serveurs NAS : partages, sauvegardes</li>
+                    </ul>
+                </section>
+
+                <section id="ServeursPedagogiques">
+                    <h3>Les serveurs pédagogiques</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Serveurs Linux : TP système, réseau, développement</li>
+                    <li>Serveurs développement Web ou sites, CMS : WordPress</li>
+                    <li>Serveurs J2E : GlassFish</li>
+                    <li>SGBD : Oracle, PostGres</li>
+                    <li>Serveur échanges audio : Mumble</li>
+                    <li>Outils de Workflow : Redmine</li>
+                    <li>Serveur d'images de VM pour Virtual Box</li>
+                    <li>Gestionnaire de sources : SVN</li>
+                    <li>Décisionnel : Penthao</li>
+                    <li>ERP : Sylob</li>
+                    <li>Serveurs dédiés à la demande : enseignements ou projets</li>
+                    </ul>
+                </section>
+
+                <section id="ServeursWindows">
+                    <h3>Les serveurs Windows</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Contrôleur de domaine AD + GPO + secondaire</li>
+                    <li>Serveur d'espace disque réseau et de profils</li>
+                    <li>Serveur DHCP + DNS</li>
+                    <li>Serveur WSUS</li>
+                    <li>Serveur Ghost et WDS + MDT</li>
+                    <li>Serveurs d'applications Windows : logiciels labos de langue, licences flottantes, etc</li>
+                    <li>Serveur d'impression, de consommation (KAPAX) et de quotas (Print Manager)
+                    </ul>
+                </section>
+
+                <section id="ServeursNDV">
+                    <h3>Les serveurs NDV</h3>
+                    <ul style="list-style-type: none;">
+                    <li>4 hyperviseurs bi-proc RAM 64 Go</li>
+                    <li>2 brokers physiques</li>
+                    <li>90 VM Windows 7 déployées sur terminaux Ncomputing L300</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section data-transition="convex">
+                <section id="Parc">
+                    <h2>Le parc</h2>
+                </section>
+
+                <section id="ParcPersonnels">
+                    <h3>Les machines des personnels</h3>
+                    <ul style="list-style-type: none;">
+                    <li>105 PC Windows 7 dont 60 portables</li>
+                    <li>un unique Mac</li>
+                    <li>32 imprimantes réseau</li>
+                    <li>8 copieurs, service reprographie assuré par le concierge</li>
+                    <li>2 terminaux de visioconférence H323</li>
+                    </ul>
+                </section>
+
+                <section id="ParcEtudiants">
+                    <h3>Les machines pédagogiques</h3>
+                    <ul style="list-style-type: none;">
+                    <li>368 PC pédagogiques répartis dans 13 salles en libre accès</li>
+                    <li>dont 90 PC virtuels</li>
+                    <li class="fragment" style="text-align: center; color: green;">5,4 PC / 10 étudiants</li>
+                    <li>Windows 7 ou double boot Linux</li>
+                    <li>7 imprimantes en libre accès avec quotas personnels</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section data-transition="convex">
+                <section id="Comptes">
+                    <h2>Les comptes utilisateurs</h2>
+                </section>
+
+                <section id="ActiveDirectory">
+                    <h3>Les comptes Windows</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Active Directory sous Windows 2008 Server</li>
+                    <li>Environ 700 comptes étudiants</li>
+                    <li>Environ 150 comptes personnels</li>
+                    <li>Plusieurs dizaines de comptes fonctionnels</li>
+                    <li>Active Directory alimenté par Refid</li>
+                    <li>Tous les PC fixes gérés par AD : 50 machines</li>
+                    <li>GPO par groupes, filières, salles</li>
+                    </ul>
+                </section>
+
+                <section id="GestionComptes">
+                    <h3>La gestion des comptes</h3>
+                    <img src="images/gestionComptes.jpg" style="max-height: 80%; max-width: 80%;"/>
+                </section>
+            </section>
+
+            <section data-transition="convex">
+                <section id="Applications">
+                    <h2>Les applications</h2>
+                </section>
+
+                <section id="Apogee">
+                    <h3>Apogee</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Entre 7 et 14 postes d'accès</li>
+                    <li>Utilisation nominative</li>
+                    <li>Chiffrement applicatif entre IUT et UT1</li>
+                    <li>Un VPN dédié pour les impressions serveur</li>
+                    </ul>
+                </section>
+
+                <section id="Sifac">
+                    <h3>Sifac</h3>
+                    <ul style="list-style-type: none;">
+                    <li>2 postes et 2 comptes d'accès</li>
+                    <li>Flux dans le VPN de site à site</li>
+                    </ul>
+                </section>
+
+                <section id="Saghe">
+                    <h3>Saghe</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Une vingtaine d'utilisateurs locaux</li>
+                    <li>Application Web : https</li>
+                    </ul>
+                </section>
+
+                <section id="Harpège">
+                    <h3>Harpege</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Besoin en consultation exprimé,</li>
+                    <li>mais jamais formalisé ...</li>
+                    <li>Aucun utilisateur local</li>
+                    </ul>
+                </section>
+
+                <section id="GPU">
+                    <h3>GPU</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Gestion des emplois du temps des personnels, des étudiants, des salles et des ressources matérielles</li>
+                    <li>Calcul des heures</li>
+                    <li>Plateforme apache/php/mysql</li>
+                    <li style="text-align: center; color: red;">Plus maintenue par l'éditeur !</li>
+                    </ul>
+                </section>
+
+                <section id="ServicesEnLigne">
+                    <h3>Services en ligne</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Services Google Apps Education : Webmail, documents, sites, etc</li>
+                    <li>Moodle : essentiellement pour des évaluations en ligne</li>
+                    <li>SCOUT</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section data-transition="convex">
+                <section id="ServiceInformatique">
+                    <h2>Service informatique de l'IUT</h2>
+                </section>
+
+                <section id="ServiceInfoPersonnels">
+                    <h3>Personnels</h3>
+                    <ul style="list-style-type: none;">
+                    <li>1 ASI : gestionnaire de parc informatique et télécommunications</li>
+                    <li>1 IGR : chef de projet ou expert en développement et déploiement d'applications</li>
+                    </ul>
+                </section>
+
+                <section id="Mission">
+                    <h3>Mission</h3>
+                    <p>Assurer ...</p>
+                    <ul style="list-style-type: none;">
+                    <li>le bon fonctionnement de l'outil informatique en général, de l'infrastructure au poste de travail,</li>
+                    <li>le développement de cet outil en fonction de l'évolution des besoins,</li>
+                    <li>le support aux utilisateurs aussi bien personnels qu'étudiants,</li>
+                    <li>le conseil, l'accompagnement et la veille technologique informatique.<li>
+                    </ul>
+                </section>
+
+                <section id="Methode">
+                    <h3>Méthode</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Choix prioritaire de solutions libres et gratuites.</li>
+                    <li>Déclinaision simplifiée d'ITIL pour la relation utilisateur.</li>
+                    <li>Principes de travail : </li>
+                    <li class="fragment" style="text-align: center; color: orange">YAGNI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You Ain't Gonna Need It</li>
+                    <li class="fragment" style="text-align: center; color: green">KISS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Keep It Simple Stupid</li>
+                    </ul>
+                </section>
+
+                <section id="Administratif">
+                    <h3>Administratif</h3>
+                    <ul style="list-style-type: none;">
+                    <li>Préparation et exécution du budget, non géré directement : environ 80K€ annuels</li>
+                    <li>Traitement de toutes les demandes d'achat et commandes informatiques de l'IUT</li>
+                    <li>Suivi technique des marchés : ASTER.</li>
+                    <li>Autonomie d'organisation et planification des congés, gestion par le RA</li>
+                    </ul>
+                </section>
+
+                <section id="Competences">
+                    <h3>Domaines de compétences mises en œuvre</h3>
+                    <ul style="list-style-type: none; font-size: 80%;">
+                    <li>- maîtrise et configuration du poste de travail Windows 7</li>
+                    <li>- installation et déploiement des postes de travail : <i>logiciels, master, ghost</i></li>
+                    <li>- support fonctionnel : <i>GPU, CMS, téléphonie, bureautique, visioconf, linux, google apps, moodle, logiciels locaux : labos, salles, etc</i></li>
+                    <li>- réseau : <i>configuration équipements et bornes wifi Cisco</i></li>
+                    <li>- firewall : <i>fortigate 100D, iptables</i></li>
+                    <li>- ToIP : <i>OmniPCX</i></li>
+                    <li>- systemes : <i>Windows 2008, 2012, Hyper V, Linux, proxmox (openVZ, LXC, KVM)</i></li>
+                    <li>- virtualisation du poste de travail : <i>NDV</i></li>
+                    <li>- services : <i>AD+GPO, kerberos, bind, dhcpd, apache, squid/squidguard, exim, nagios, cacti, tftp, sftp, ntp, oracle, mysql, postgres, svn, jre, tomcat, CAS, redmine, kanet, joomla, glpi, nodejs, etc</i></li>
+                    <li>- langages : <i>bash, vbscript, powershell, html/css, javascript, php, ruby, python, sql</i></li>
+                    </ul>
+                    <p>essentiellement par auto-formation</p>
+                </section>
+
+                <section id="Outils">
+                    <h3>Outils de la relation utilisateur</h3>
+                    <p>Gestionnaire de tickets Redmine</p>
+                    <ul style="list-style-type: none;">
+                    <li>demandes utilisateurs par e-mail : <i>support@iut-rodez.fr</i></li>
+                    <li>suivi des projets internes</li>
+                    <li>suivi des versions : acl et scripts</li>
+                    </ul>
+                    <br/>
+                    <p>Winlog</p>
+                    <ul style="list-style-type: none;">
+                    <li>suivi en direct des connexions et des usages dans les salles de cours</li>
+                    <li>blocage dynamique des accès au web par salle</li>
+                    <li>arrêt/redémarrage des machines à distance</li>
+                    </ul>
+                </section>
+            </section>
+
+
+            <section id="Projets" data-transition="convex">
+                <h2>Projets en cours</h2>
+                <ul style="list-style-type: none;">
+                <li class="fragment">Système : migration proxmox 4</li>
+                <li class="fragment">Système : cluster Hyper-V</li>
+                <li class="fragment">Réseau : nouvelle solution Wifi + Eduroam UT1</li>
+                <li class="fragment">Réseau : changement architecture du coeur</li>
+                <li class="fragment">Parc : déploiement NDV-AP et Hyperbox</li>
+                <li class="fragment">Services : migration Joomla à K-Sup</li>
+                <li class="fragment">Services : migration GPU vers ADE</li>
+                <li class="fragment">Services : migration mail vers "ut-capitole.fr"</li>
+                <li class="fragment">Services : migration documentation interne vers Wiki DSI</li>
+                </ul> 
+            </section>
+
+            <section id="Evolution" data-transition="convex">
+                <h2>Évolution du contexte à moyen terme</h2>
+                <ul style="list-style-type: none;">
+                <li class="fragment">Intégration dans Univ Toulouse</li>
+                <li class="fragment">Arrivée de Champollion sur le campus</li>
+                </ul> 
+            </section>
+
+            <section id="Fin" data-transition="convex">
+                <h2>Conclusion</h2>
+                <ul style="list-style-type: none;">
+                <li>Repas</li>
+                <li>Discussions et échanges</li>
+                </ul> 
+            </section>
+        </div>
+    </div>
+    <canvas id="renderCanvas"></canvas>
+    <script src="reveal/js/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            history: true
+        });
+    </script>
+    <script src="iut.js"></script>
+    <script>
+        window.onload = init;
+    </script>
+
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'pdf.css'; // Notice: I changed the path
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+</body>
+</html>
