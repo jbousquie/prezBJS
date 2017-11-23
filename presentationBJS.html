@@ -170,9 +170,7 @@ void main()
                         <li class="fragment">une interface utilisateur (GUI),</li>
                         <li class="fragment">des effets : ombres, SSAO, fog, PBR, DoF, etc.</li>                  
                     </ul>
-                    <br/>
-                    <p class="fragment">Pour abstraire cette complexité, un framework</p>
-                    <h2 class="fragment">BABYLON.js</h2>            
+                    <br/>         
                 </section>
                 <section data-transition="convex">
                         <section id="SceneWall">
@@ -181,7 +179,7 @@ void main()
                 </section>
                 <section id="Scene2" data-transition="convex">
                         <h2>Une scène</h2>
-                        <p>Ce sont aussi aussi en général ...</p>
+                        <p>Ce sont aussi en général ...</p>
                         <ul style="list-style-type: none;">
                             <li class="fragment">des interactions avec l'utilisateur,</li>
                             <li class="fragment">des animations,</li>
@@ -194,6 +192,23 @@ void main()
                             <section id="BlowWall">
                                 <h3>Interaction, animation, logique, physique</h3>
                             </section>
+                    </section>
+                    <section id="SceneCode" data-transition="convex">
+                        <p>Le tout en simple Javascript</p>
+                        <pre><code class="javascript">var engine = new BABYLON.Engine(canvas, true);
+
+var scene = new BABYLON.Scene(engine);
+
+var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 100, BABYLON.Vector3.Zero(), scene);
+
+var light = new BABYLON.PointLight("PointLight", camera.position, scene);
+
+var mesh = BABYLON.MeshBuilder.CreateTorusKnot("m", {radialSegments: 80, tubularSegments: 24, tube: 0.6}, scene);
+
+scene.registerBeforeRender(function() { /* votre logique ici */ });
+
+engine.runRenderLoop(function(){ scene.render(); });
+                        </code></pre>
                     </section>
         </div>
     </div>
