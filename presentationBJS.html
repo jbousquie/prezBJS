@@ -28,11 +28,12 @@
         <div class="slides">
 
             <section id="Intro" data-transition="convex">
-                <h2>Dev In Rodez</h2>
+                <h2>SGRL Champollion</h2>
                 <h1>BabylonJS</h1>
+                <p>La 3D facile pour le Web</p>
                 <br/>
                 <br/>
-                <p style="font-size: 70%;">date ici</p>
+                <p style="font-size: 70%;">27 / 11 / 2017</p>
             </section>
         
             <section  data-transition="convex">          
@@ -65,6 +66,7 @@
                 <pre class="fragment"><code class="javascript">
             window.requestAnimationFrame(callbackFunction);
                     </code></pre>
+                    <br/>
                 <span class="fragment">60 fps (frames par seconde) = 16.6 ms</span>
                 </section>
             </section>
@@ -121,36 +123,78 @@
                 </section>
             </section>
 
-            <section id="Projets" data-transition="convex">
-                <h2>Projets en cours</h2>
+            <section id="WebGL" data-transition="convex">
+                <h2>WebGL à la rescousse</h2>
                 <ul style="list-style-type: none;">
-                <li class="fragment">Système : migration proxmox 4</li>
-                <li class="fragment">Système : cluster Hyper-V</li>
-                <li class="fragment">Réseau : nouvelle solution Wifi + Eduroam UT1</li>
-                <li class="fragment">Réseau : changement architecture du coeur</li>
-                <li class="fragment">Parc : déploiement NDV-AP et Hyperbox</li>
-                <li class="fragment">Services : migration Joomla à K-Sup</li>
-                <li class="fragment">Services : migration GPU vers ADE</li>
-                <li class="fragment">Services : migration mail vers "ut-capitole.fr"</li>
-                <li class="fragment">Services : migration documentation interne vers Wiki DSI</li>
+                <li class="fragment">Spécification HTML5 identique à OpenGL ES</li>
+                <li class="fragment">Langage compilé GLSL exécuté par le GPU<br/>
+                    <pre><code class="glsl">in vec3 position;
+in vec3 normal;
+in vec2 texCoord;
+out VertexData {
+  vec2 texCoord;
+  vec3 normal;
+} VertexOut;
+ 
+void main()
+{
+  VertexOut.texCoord = texCoord;
+  VertexOut.normal = normalize(normalMatrix * normal);    
+  gl_Position = projModelViewMatrix * vec4(position, 1.0);
+}
+</code></pre>
+                </li>
+
                 </ul> 
+            </section>
+            <section id="SosBJS" data-transition="convex">
+                <p>Oui, mais ...</p>
+                <ul style="list-style-type: none;">
+                    <li class="fragment">Le calcul matriciel, c'est pénible,</li>
+                    <li class="fragment">la géométrie dans l'espace, c'est difficile,</li>
+                    <li class="fragment">la programmation GLSL, c'est compliqué.</li>                    
+                </ul>
+                <br/>
+                <p class="fragment">Pour abstraire cette complexité, un framework</p>
+                <h2 class="fragment">BABYLON.js</h2>            
             </section>
 
-            <section id="Evolution" data-transition="convex">
-                <h2>Évolution du contexte à moyen terme</h2>
-                <ul style="list-style-type: none;">
-                <li class="fragment">Intégration dans Univ Toulouse</li>
-                <li class="fragment">Arrivée de Champollion sur le campus</li>
-                </ul> 
-            </section>
-
-            <section id="Fin" data-transition="convex">
-                <h2>Conclusion</h2>
-                <ul style="list-style-type: none;">
-                <li>Repas</li>
-                <li>Discussions et échanges</li>
-                </ul> 
-            </section>
+            <section id="Scene" data-transition="convex">
+                    <h2>Une scène</h2>
+                    <ul style="list-style-type: none;">
+                        <li class="fragment">Une caméra impérativement,</li>
+                        <li class="fragment">une ou plusieurs sources lumineuses,</li>
+                        <li class="fragment">des volumes (meshes),</li> 
+                        <li class="fragment">et parfois</li>
+                        <li class="fragment">des particules,</li> 
+                        <li class="fragment">une interface utilisateur (GUI),</li>
+                        <li class="fragment">des effets : ombres, SSAO, fog, PBR, DoF, etc.</li>                  
+                    </ul>
+                    <br/>
+                    <p class="fragment">Pour abstraire cette complexité, un framework</p>
+                    <h2 class="fragment">BABYLON.js</h2>            
+                </section>
+                <section data-transition="convex">
+                        <section id="SceneWall">
+                            <h2>Exemple de scène simple</h2>
+                        </section>
+                </section>
+                <section id="Scene2" data-transition="convex">
+                        <h2>Une scène</h2>
+                        <p>Ce sont aussi aussi en général ...</p>
+                        <ul style="list-style-type: none;">
+                            <li class="fragment">des interactions avec l'utilisateur,</li>
+                            <li class="fragment">des animations,</li>
+                            <li class="fragment">des contraintes physiques,</li> 
+                            <li class="fragment">des données contextuelles,</li> 
+                            <li class="fragment">une logique de la scène.</li>                 
+                        </ul>          
+                    </section>
+                    <section data-transition="convex">
+                            <section id="BlowWall">
+                                <h3>Interaction, animation, logique, physique</h3>
+                            </section>
+                    </section>
         </div>
     </div>
     <canvas id="renderCanvas"></canvas>
