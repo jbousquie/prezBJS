@@ -11,7 +11,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="head.min.js"></script>
     <link rel="stylesheet" href="reveal/css/reveal.css">
-    <link rel="stylesheet" href="reveal/css/theme/beige.css">
+    <link rel="stylesheet" href="reveal/css/theme/beige2.css">
     <link rel="stylesheet" href="zenburn.css">
     <style>
         #renderCanvas {
@@ -41,7 +41,26 @@
                     <h3>teaser ...</h3>
                 </section>
             </section>
-
+            <section id="Web" data-transition="convex">
+                <h2>Le Web, c'est bien</h2>
+                        <p class="fragment">Une cible unique : le browser.</p>
+                        <p class="fragment">Présent par défaut sur toutes les plateformes.</p>
+                        <p class="fragment">Protocole http/https autorisé <i>(presque)</i> partout.</p> 
+                        <p class="fragment">Pas d'installation locale, déploiement aisé.</p> 
+                        <p class="fragment">Couches réseau et rendu déjà implémentées.</p>               
+            </section>                
+            <section id="Html5" data-transition="convex">
+                    <h2>HTML5, c'est encore mieux</h2>
+                            <p class="fragment">Standard W3C suivi et promu par <b>tous</b> les éditeurs</p>
+                            <p class="fragment">Véritable plateforme de développement via les API</p> 
+                            <ul style="list-style-type: none;">
+                                <li class="fragment">Stockage : cache, IndexedDB, Files</li> 
+                                <li class="fragment">Connectivité : WebSockets, WebRTC</li> 
+                                <li class="fragment">Périphériques : accès caméra, orientation, tactile</li> 
+                                <li class="fragment">Performances : compilation JIT, Web Workers</li> 
+                                <li class="fragment">Rendu : audio/video, SVG, canvas, WebGL, WebVR</li>                            
+                            </ul>
+                </section>
             <section data-transition="convex">
                 <section id="Canvas">
                     <h3>HMTL5</h3>
@@ -102,7 +121,6 @@
                     <br/>
                     <p><i>Soit plus de 128 opérations élémentaires juste pour calculer la matrice composée...</i></p>
                 </section>
-
             </section>
 
             <section data-transition="convex">
@@ -210,6 +228,120 @@ scene.registerBeforeRender(function() { /* votre logique ici */ });
 engine.runRenderLoop(function(){ scene.render(); });
                         </code></pre>
                     </section>
+                    <section id="features" data-transition="convex">
+                                <h2>Des fonctionnalités plus riches ...</h2>
+                                <div class="fragment" style="font-size: 50%; display: flex">Complete scene graph with lights, cameras, materials and meshes
+                                        Collisions engine /
+                                        Physics engine /
+                                        Scene picking /
+                                        Antialiasing /
+                                        Animations engine /
+                                        Particles Systems /
+                                        Sprites and 2D layers /
+                                        Frustum clipping /
+                                        Sub-meshes clipping /
+                                        Hardware scaling /
+                                        Selection octrees /
+                                        Offline mode (Assets are saved locally to prevent reloading them) /
+                                        Incremental loading /
+                                        Binary format /
+                                        Hardware accelerated instances /
+                                        Diffuse lightning and texture /
+                                        Ambient lightning and texture /
+                                        Specular lightning /
+                                        Opacity texture /
+                                        Reflection texture (Spheric, planar, cubic and projection) /
+                                        Mirror texture /
+                                        Emissive texture /
+                                        Specular texture /
+                                        Bump texture /
+                                        Up to 16 lights (point, directional, spot, hemispheric) /
+                                        Custom materials /
+                                        Skybox /
+                                        Vertex color /
+                                        4 bones per vertex /
+                                        Fresnel term /
+                                        Fog /
+                                        Alpha blending /
+                                        Alpha testing /
+                                        Billboarding /
+                                        Fullscreen mode /
+                                        Shadow Maps and Variance Shadow Maps /
+                                        Rendering layers /
+                                        Post-processes (blur, refraction, black'n'white, fxaa, customs...) /
+                                        Lens flares /
+                                        Multi-views /
+                                        Render target textures /
+                                        Dynamic textures (canvas) /
+                                        Video textures /
+                                        Compressed (DDS) textures /
+                                        Targa textures /
+                                        Arc rotate camera /
+                                        Free camera /
+                                        Touch camera /
+                                        Virtual Joysticks camera /
+                                        Gamepad camera /
+                                        Mesh cloning /
+                                        Dynamic meshes /
+                                        Height maps /
+                                        Bones /
+                                        Constructive solid geometries /
+                                        Babylon scene file can be converted from .OBJ, .FBX, .MXB /
+                                        Exporters (Blender ,Cheetah3d, 3ds Max, Unity …) /
+                                        Support for drag'n'drop /
+                                        Support du WebVR /
+                                        Bloom /
+                                        GUI /
+                                        Reflection probes /
+                                        Support des squelettes et bones avec animations /
+                                        Support left-handed mode and right-handed mode /
+                                        Compilation avec optimize-js for faster load /
+                                        ….
+                                </div>
+                       </section>
+                       <section id="Formats" data-transition="convex">
+                            <h3>Exporters et formats</h3>
+                            <p class="fragment">Exporters pour Blender, Unity, 3DS Max, Clara.io</p>
+                            <p class="fragment">Exporters pour les formats OBJ, FBX et STL</p>
+                            <p class="fragment">Importers pour les formats <b>glTF</b>, OBJ et STL</p>
+                            <p class="fragment">Support de drag'n'drop</p>
+                
+                        </section>
+                       <section id="Documentation" data-transition="convex">
+                            <h3>La Documentation</h3>
+                            <p><a href="http://doc.babylonjs.com/">http://doc.babylonjs.com/</a></p>
+                            <img src="images/BabylonJSDocumentation.png"/>
+                        </section>
+                        <section id="Forum" data-transition="convex">
+                                <h3>La Communauté</h3>
+                                <p><a href="http://www.html5gamedevs.com/forum/16-babylonjs/">http://www.html5gamedevs.com/forum/16-babylonjs/</a></p>
+                                <img src="images/QuestionsAnswers.png"/>
+                        </section>
+                        <section id="Playground" data-transition="convex">
+                                <h3>Le Playground</h3>
+                                <p><a href="http://www.babylonjs-playground.com">http://www.babylonjs-playground.com</a></p>
+                                <img src="images/Playground.png"/>
+                        </section>
+                        <section id="Github" data-transition="convex">
+                                <h3>Le Dépôt</h3>
+                                <p><a href="https://github.com/BabylonJS/Babylon.js">https://github.com/BabylonJS/Babylon.js</a></p>
+                                <img src="images/BJSGithub.png"/>
+                        </section>
+                        <section id="WindowsDeveloper" data-transition="convex">
+                                <h3>Le support MS</h3>
+                                <p style="font-size: 85%"><a href="https://twitter.com/windowsdev/status/928400628941971458">https://twitter.com/windowsdev/status/928400628941971458</a></p>
+                                <img src="images/WindowsDeveloperBJS.png"/>
+                        </section>
+                        <section id="Livres" data-transition="convex">
+                                <h3>Les livres</h3>
+                                <div style="display: flex; font-size: 80%">
+                                <div>Julian Chenard : Learning Babylon.JS<img src="images/LearningBJS.jpg"/></div>
+                                
+                                <div>Julien Moreau-MAthis : Babylon.js Essentials<img src="images/BJSEssentials.jpg"/></div>
+                                <div style="align-self: center">Patrick Cozzi / David Catuhe : WebGL Insights <img src="images/WebGLInsights.jpeg"/> </div>
+                            </div>
+                            
+                        </section>
         </div>
     </div>
     <canvas id="renderCanvas"></canvas>
